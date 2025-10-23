@@ -20,7 +20,7 @@ public class CategoriaService {
 
     public List<CategoriaDTO> findAll() {
         List<Categoria> list = repository.findAll();
-        return list.stream().map(CategoriaDTO::new).collect(Collectors.toList());
+return list;
     }
 
     public CategoriaDTO findById(Long id) {
@@ -36,7 +36,6 @@ public class CategoriaService {
         return new CategoriaDTO(entity);
     }
 
-    // UPDATE (PUT)
     public CategoriaDTO update(Long id, CategoriaDTO dto) {
         try {
             Categoria entity = repository.getReferenceById(id);

@@ -16,6 +16,16 @@ import lombok.NoArgsConstructor;
 @Table(name = "tb_categoria")
 @NoArgsConstructor
 public class Categoria {
+	
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false, unique = true)
+    private String nome;
+
+    @OneToMany(mappedBy = "categoria")
+    private List<Produto> produtos = new ArrayList<>();
 
     public Long getId() {
 		return id;
@@ -40,14 +50,4 @@ public class Categoria {
 	public void setProdutos(List<Produto> produtos) {
 		this.produtos = produtos;
 	}
-
-	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(nullable = false, unique = true)
-    private String nome;
-
-    @OneToMany(mappedBy = "categoria")
-    private List<Produto> produtos = new ArrayList<>();
 }

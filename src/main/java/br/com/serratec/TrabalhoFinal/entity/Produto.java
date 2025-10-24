@@ -1,18 +1,15 @@
 package br.com.serratec.TrabalhoFinal.entity;
 
-
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "tb_produto")
-@Getter
+@Data
 @NoArgsConstructor
 public class Produto {
 
@@ -31,8 +28,7 @@ public class Produto {
     @ManyToOne
     @JoinColumn(name = "categoria_id", nullable = false)
     private Categoria categoria;
-
-
-    // @OneToMany(mappedBy = "produto")
-    // private List<ItemPedido> itens = new ArrayList<>();
+    
+    @OneToMany(mappedBy = "produto")
+    private List<ItemPedido> itens = new ArrayList<>();
 }

@@ -1,9 +1,10 @@
 package br.com.serratec.TrabalhoFinal.repository;
 
-import br.com.serratec.TrabalhoFinal.entity.Produto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import br.com.serratec.TrabalhoFinal.entity.Pedido;
+
 @Repository
-public interface IProdutoRepository extends JpaRepository<Produto, Long> {
+public interface IPedidoRepository extends JpaRepository<Pedido, Long> {
 }

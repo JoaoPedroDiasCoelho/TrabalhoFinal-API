@@ -1,6 +1,9 @@
 package br.com.serratec.TrabalhoFinal.service;
 
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,9 +11,6 @@ import br.com.serratec.TrabalhoFinal.dto.CategoriaDTO;
 import br.com.serratec.TrabalhoFinal.entity.Categoria;
 import br.com.serratec.TrabalhoFinal.exception.ResourceNotFoundException;
 import br.com.serratec.TrabalhoFinal.repository.ICategoriaRepository;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class CategoriaService {
@@ -20,7 +20,7 @@ public class CategoriaService {
 
     public List<CategoriaDTO> findAll() {
         List<Categoria> list = repository.findAll();
-return list;
+        return list.stream().map( CategoriaDTO::new).collect(Collectors.toList());
     }
 
     public CategoriaDTO findById(Long id) {
